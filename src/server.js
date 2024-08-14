@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { appPort } from './env/envoriment';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../swagger.json' assert { type: "json" };
 
 const app = express();
 app.use(cors({

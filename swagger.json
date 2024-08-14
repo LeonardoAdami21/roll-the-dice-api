@@ -1,0 +1,53 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger Roll Dice Api",
+    "version": "1.0.0",
+    "description": "This is a API to roll a dice",
+    "contact": {
+      "email": "leonardorossato21@gmail.com",
+      "name": "Leonardo Adami"
+    }
+  },
+  "tags": [
+    {
+      "name": "Roll Dice",
+      "description": "Roll a dice"
+    }
+  ],
+  "paths": {
+    "/roll": {
+      "post": {
+        "tags": ["Roll Dice"],
+        "summary": "Roll a dice",
+        "description": "Roll a dice and return the result",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "dice": {
+                    "type": "integer",
+                    "description": "The number of faces of the dice"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  }
+}
