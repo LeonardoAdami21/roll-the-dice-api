@@ -1,12 +1,19 @@
-const rollDice = (req, res) => {
+import { rollDiceService } from "./roll-dice.service.js";
+
+const rollDice = async (req, res) => {
   try {
-    const { dice } = req.body;
-    const sides = parseInt(dice.substring(1));
-    if (isNaN(sides) || sides <= 1) {
-      return res.status(400).json("Invalid dice");
-    }
-    const result = Math.floor(Math.random() * sides) + 1;
+    const { diceType } = req.body;
+    const result = await rollDiceService.createRollDice(diceType);
     return res.status(201).json({ result });
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+const getRollDice = async(req, res) => {
+  try {
+    const result = await rollDiceService.getRollDice();
+    return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
@@ -14,4 +21,5 @@ const rollDice = (req, res) => {
 
 export const rollDiceController = {
   rollDice,
+  getRollDice,
 };
