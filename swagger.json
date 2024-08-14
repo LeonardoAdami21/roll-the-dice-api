@@ -1,5 +1,10 @@
 {
   "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
   "info": {
     "title": "Swagger Roll Dice Api",
     "version": "1.0.0",
