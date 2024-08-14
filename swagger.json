@@ -27,7 +27,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "dice": {
+                  "diceType": {
                     "type": "string",
                     "description": "Dice to be rolled",
                     "example": "D6"
@@ -43,6 +43,21 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/roll/history": {
+      "get": {
+        "tags": ["Roll Dice"],
+        "summary": "Get roll history",
+        "description": "Get the history of all rolls",
+        "responses": {
+          "200": {
+            "description": "Success response"
           },
           "500": {
             "description": "Internal server error"
