@@ -28,8 +28,9 @@
                 "type": "object",
                 "properties": {
                   "dice": {
-                    "type": "integer",
-                    "description": "The number of faces of the dice"
+                    "type": "string",
+                    "description": "Dice to be rolled",
+                    "example": "D6"
                   }
                 }
               }
